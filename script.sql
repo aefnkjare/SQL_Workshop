@@ -74,7 +74,7 @@ CREATE TABLE inventory (
 	dealershipId INT,
     VIN VARCHAR,
     FOREIGN KEY(dealershipId) REFERENCES dealership(dealershipId)
-    FOREIGN KEY(VIN) REFERENCES vehicle(VIN)
+    FOREIGN KEY(VIN) REFERENCES vehicles(VIN)
 
 );
 
@@ -122,6 +122,7 @@ INSERT INTO inventory
 CREATE TABLE sales_contracts (
 	salesId VARCHAR NOT NULL, --should be auto-incremented
     contractorName VARCHAR,
-    vehicleNumber INT --use foreign key (VIN) to link to vehicle
-    FOREIGN KEY(vehicleNumber) REFERENCES (vehicles)
+    vehicleNumber INT, --use foreign key (VIN) to link to vehicle
+    FOREIGN KEY (vehicleNumber) REFERENCES vehicles(VIN)
 )
+
